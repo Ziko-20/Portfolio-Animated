@@ -22,7 +22,7 @@ const Projects = () => {
       title: t('projects.items.p2_title'),
       category: t('projects.categories.web'),
       description: t('projects.items.p2_desc'),
-      image: "bg-purple-900/40",
+      image: "/project2.png",
       tags: ["React", "JavaScript", "localStorage", "Tailwind CSS"],
       liveLink: "https://to-do-react-xi-smoky.vercel.app/",
       githubLink: "https://github.com/Ziko-20/To-do-React.git"
