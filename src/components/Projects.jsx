@@ -13,7 +13,19 @@ const Projects = () => {
       category: t('projects.categories.web'),
       description: t('projects.items.p1_desc'),
       image: "/project1.png",
-      tags: ["Laravel 11", "Livewire", "MySQL", "React"]
+      tags: ["Laravel 11", "Livewire", "MySQL", "React"],
+      liveLink: "#",
+      githubLink: "#"
+    },
+    {
+      id: 2,
+      title: t('projects.items.p2_title'),
+      category: t('projects.categories.web'),
+      description: t('projects.items.p2_desc'),
+      image: "bg-purple-900/40",
+      tags: ["React", "JavaScript", "localStorage", "Tailwind CSS"],
+      liveLink: "https://to-do-react-xi-smoky.vercel.app/",
+      githubLink: "https://github.com/Ziko-20/To-do-React.git"
     }
   ];
 
@@ -78,10 +90,10 @@ const Projects = () => {
                 </div>
                 
                 <div className="flex items-center gap-4 mt-auto">
-                  <a href="#" className="p-2 rounded-full bg-white/5 hover:bg-white/10 transition-colors text-slate-300 hover:text-white">
+                  <a href={project.liveLink} target={project.liveLink !== "#" ? "_blank" : undefined} rel="noreferrer" className="p-2 rounded-full bg-white/5 hover:bg-white/10 transition-colors text-slate-300 hover:text-white">
                     <ExternalLink className="w-5 h-5" />
                   </a>
-                  <a href="#" className="p-2 rounded-full bg-white/5 hover:bg-white/10 transition-colors text-slate-300 hover:text-white">
+                  <a href={project.githubLink} target={project.githubLink !== "#" ? "_blank" : undefined} rel="noreferrer" className="p-2 rounded-full bg-white/5 hover:bg-white/10 transition-colors text-slate-300 hover:text-white">
                     <Github className="w-5 h-5" />
                   </a>
                 </div>

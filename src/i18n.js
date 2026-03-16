@@ -40,6 +40,8 @@ const resources = {
         items: {
           p1_title: "Gestion Clients & Abonnements",
           p1_desc: "Application d'administration pour gérer les clients WordPress, suivre les abonnements, enregistrer les paiements et visualiser des statistiques via un dashboard. Inclut un système de rôles et une interface multilingue FR/EN.",
+          p2_title: "Zakaria's To-Do List",
+          p2_desc: "Application de productivité pour gérer des tâches au quotidien, suivre leur accomplissement, éditer leur contenu et nettoyer la liste via une interface centralisée. Inclut un système complet d'opérations CRUD, la sauvegarde locale des données (localStorage) et un design minimaliste avec thème sombre."
         }
       },
       experience: {
@@ -105,6 +107,8 @@ const resources = {
         items: {
           p1_title: "Client & Subscription Management",
           p1_desc: "Admin application to manage WordPress clients, track subscriptions, record payments, and view statistics via a dashboard. Includes a role system and a bilingual FR/EN interface.",
+          p2_title: "Zakaria's To-Do List",
+          p2_desc: "Productivity application to manage daily tasks, track completion, edit content, and clear the list via a centralized interface. Includes a complete CRUD operations system, local data storage (localStorage), and a minimalist dark theme design."
         }
       },
       experience: {
@@ -170,6 +174,8 @@ const resources = {
         items: {
           p1_title: "Kunden- & Abonnementverwaltung",
           p1_desc: "Admin-Anwendung zur Verwaltung von WordPress-Kunden, zur Verfolgung von Abonnements, zur Aufzeichnung von Zahlungen und zur Anzeige von Statistiken über ein Dashboard. Enthält ein Rollensystem und eine zweisprachige FR/EN-Oberfläche.",
+          p2_title: "Zakaria's To-Do List",
+          p2_desc: "Produktivitätsanwendung zur Verwaltung täglicher Aufgaben, Nachverfolgung der Erledigung, Bearbeitung von Inhalten und Bereinigung der Liste über eine zentrale Schnittstelle. Beinhaltet ein komplettes CRUD-Operationssystem, lokale Datenspeicherung (localStorage) und ein minimalistisches, dunkles Design."
         }
       },
       experience: {
