@@ -79,7 +79,7 @@ export default function Contact() {
           viewport={{ once: true }} transition={{ duration: 0.6 }}
           className="flex items-center gap-3 mb-6">
           <div className="w-8 h-[1px]" style={{ background: '#2563eb' }} />
-          <span className="text-xs font-mono font-semibold tracking-widest uppercase" style={{ color: '#2563eb' }}>Contact</span>
+          <span className="text-xs font-mono font-semibold tracking-widest uppercase" style={{ color: '#2563eb' }}>{t('contact.label')}</span>
         </motion.div>
 
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
@@ -104,25 +104,25 @@ export default function Contact() {
                       style={{ background: '#ECFDF5', border: '1px solid #A7F3D0' }}>
                       <CheckCircle size={32} style={{ color: '#059669' }} />
                     </div>
-                    <h3 className="text-xl font-display font-bold" style={{ color: '#111111' }}>Message envoyé !</h3>
-                    <p className="text-sm" style={{ color: '#71717a' }}>Je vous réponds dans les plus brefs délais.</p>
+                    <h3 className="text-xl font-display font-bold" style={{ color: '#111111' }}>{t('contact.successTitle')}</h3>
+                    <p className="text-sm" style={{ color: '#71717a' }}>{t('contact.successMsg')}</p>
                   </motion.div>
                 ) : (
                   <motion.form key="form" ref={formRef} onSubmit={handleSubmit}
                     initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
                     className="space-y-4">
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                      <FloatingLabel id="name" label="Votre nom" value={form.name} onChange={handleChange('name')} required />
-                      <FloatingLabel id="email" label="Email" type="email" value={form.email} onChange={handleChange('email')} required />
+                      <FloatingLabel id="name" label={t('contact.formName')} value={form.name} onChange={handleChange('name')} required />
+                      <FloatingLabel id="email" label={t('contact.formEmail')} type="email" value={form.email} onChange={handleChange('email')} required />
                     </div>
-                    <FloatingLabel id="subject" label="Sujet" value={form.subject} onChange={handleChange('subject')} required />
-                    <FloatingLabel id="message" label="Message" as="textarea" rows={6} value={form.message} onChange={handleChange('message')} required />
+                    <FloatingLabel id="subject" label={t('contact.formSubject')} value={form.subject} onChange={handleChange('subject')} required />
+                    <FloatingLabel id="message" label={t('contact.formMessage')} as="textarea" rows={6} value={form.message} onChange={handleChange('message')} required />
 
                     {status === 'error' && (
                       <div className="flex items-center gap-2 text-sm px-4 py-3 rounded-xl"
                         style={{ background: '#FEF2F2', border: '1px solid #FCA5A5', color: '#dc2626' }}>
                         <AlertCircle size={16} />
-                        Erreur. Veuillez réessayer ou écrire directement par email.
+                        {t('contact.errorMsg')}
                       </div>
                     )}
 
@@ -132,7 +132,7 @@ export default function Contact() {
                       style={{ background: 'linear-gradient(135deg,#2563eb,#7c3aed)', boxShadow: '0 4px 20px rgba(37,99,235,0.25)' }}>
                       {status === 'loading'
                         ? <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                        : <><Send size={16} /> Envoyer le message</>}
+                        : <><Send size={16} /> {t('contact.sendBtn')}</>}
                     </motion.button>
                   </motion.form>
                 )}
@@ -145,7 +145,7 @@ export default function Contact() {
             viewport={{ once: true }} transition={{ duration: 0.7, delay: 0.1 }}
             className="lg:col-span-2 flex flex-col gap-4">
             <p className="text-sm mb-2" style={{ color: '#71717a' }}>
-              Je suis ouvert aux nouvelles opportunités et aux projets freelance. N'hésitez pas à me contacter !
+              {t('contact.sideNote')}
             </p>
             {contactCards.map(({ icon: Icon, label, value, href, color }) => (
               <motion.div key={label} whileHover={{ x: 4 }} transition={{ duration: 0.2 }}>

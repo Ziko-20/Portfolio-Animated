@@ -1,9 +1,9 @@
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 import {
   SiReact, SiLaravel, SiPhp, SiJavascript, SiTailwindcss, SiMysql,
   SiGit, SiHtml5, SiFigma, SiGitlab, SiBootstrap, SiVite, SiChartdotjs, SiNodedotjs,
 } from 'react-icons/si';
-
 
 const row1 = [
   { Icon: SiLaravel,    name: 'Laravel',    color: '#FF2D20' },
@@ -25,7 +25,6 @@ const row2 = [
   { Icon: SiReact,      name: 'React',      color: '#61DAFB' },
   { Icon: SiLaravel,    name: 'Laravel',    color: '#FF2D20' },
 ];
-
 
 function MarqueeRow({ items, reverse = false, speed = 32 }) {
   const doubled = [...items, ...items];
@@ -53,28 +52,31 @@ function MarqueeRow({ items, reverse = false, speed = 32 }) {
 }
 
 export default function TechStack() {
+  const { t } = useTranslation();
   return (
     <section id="techstack" className="w-full section-pad relative overflow-hidden">
       {/* Edge fades */}
-      <div className="absolute left-0 top-0 bottom-0 w-24 z-10 pointer-events-none"
+      <div className="absolute left-0 top-0 bottom-0 w-16 sm:w-24 z-10 pointer-events-none"
         style={{ background: 'linear-gradient(90deg, #F4F4F5, transparent)' }} />
-      <div className="absolute right-0 top-0 bottom-0 w-24 z-10 pointer-events-none"
+      <div className="absolute right-0 top-0 bottom-0 w-16 sm:w-24 z-10 pointer-events-none"
         style={{ background: 'linear-gradient(-90deg, #F4F4F5, transparent)' }} />
 
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }} transition={{ duration: 0.6 }}
           className="flex items-center gap-3 mb-6">
           <div className="w-8 h-[1px]" style={{ background: '#2563eb' }} />
-          <span className="text-xs font-mono font-semibold tracking-widest uppercase" style={{ color: '#2563eb' }}>Tech Stack</span>
+          <span className="text-xs font-mono font-semibold tracking-widest uppercase" style={{ color: '#2563eb' }}>
+            {t('techstack.label')}
+          </span>
         </motion.div>
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }} transition={{ duration: 0.6 }}
           className="mb-14">
           <h2 className="text-4xl md:text-5xl font-display font-black mb-4" style={{ color: '#111111' }}>
-            Tools I <span className="text-gradient">Work With</span>
+            {t('techstack.title1')}<span className="text-gradient">{t('techstack.title_gradient')}</span>
           </h2>
-          <p className="text-base" style={{ color: '#71717a' }}>Technologies et outils dans mon arsenal de développement.</p>
+          <p className="text-base" style={{ color: '#71717a' }}>{t('techstack.subtitle')}</p>
         </motion.div>
       </div>
 

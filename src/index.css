@@ -29,17 +29,26 @@
   }
 
   * { box-sizing: border-box; }
-  html { scroll-behavior: auto; }
+  html {
+    scroll-behavior: auto;
+    overflow-x: hidden;
+  }
 
   body {
     @apply antialiased overflow-x-hidden font-sans;
     background-color: #F4F4F5;
     color: #18181B;
+    min-width: 320px;
   }
 
   h1, h2, h3, h4, h5, h6 {
     @apply font-display tracking-tight;
     color: #111111;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
   }
 
   ::selection {
@@ -102,7 +111,13 @@
   .glow-blue { box-shadow: 0 0 40px -10px rgba(37,99,235,0.4); }
   .glow-purple { box-shadow: 0 0 40px -10px rgba(124,58,237,0.4); }
 
-  .section-pad { @apply py-28 px-6; }
+  /* Responsive section padding */
+  .section-pad {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
 
   /* Gradient border */
   .gradient-border {
@@ -120,6 +135,40 @@
     -webkit-mask-composite: xor;
     mask-composite: exclude;
     pointer-events: none;
+  }
+}
+
+/* ================================
+   RESPONSIVE BREAKPOINTS
+================================ */
+
+/* Tablet (≥ 640px) */
+@media (min-width: 640px) {
+  .section-pad {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+/* Laptop (≥ 1024px) */
+@media (min-width: 1024px) {
+  .section-pad {
+    padding-top: 7rem;
+    padding-bottom: 7rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+/* Large screens (≥ 1280px) */
+@media (min-width: 1280px) {
+  .section-pad {
+    padding-top: 7rem;
+    padding-bottom: 7rem;
+    padding-left: 3rem;
+    padding-right: 3rem;
   }
 }
 
@@ -145,6 +194,11 @@
 }
 @keyframes marquee         { from { transform: translateX(0);    } to { transform: translateX(-50%);  } }
 @keyframes marquee-reverse { from { transform: translateX(-50%); } to { transform: translateX(0);     } }
+@keyframes shimmer {
+  0%   { opacity: 0.3; }
+  50%  { opacity: 0.6; }
+  100% { opacity: 0.3; }
+}
 
 .animate-float         { animation: float 6s ease-in-out infinite; }
 .animate-float-slow    { animation: float-slow 8s ease-in-out infinite; }

@@ -58,7 +58,7 @@ function ParticleCanvas() {
 }
 
 // Profile photo with glow frame
-function ProfileCard() {
+function ProfileCard({ availableLabel }) {
   const [imgError, setImgError] = useState(false);
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
@@ -74,7 +74,6 @@ function ProfileCard() {
 
   return (
     <motion.div onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave} style={{ perspective: 900 }} className="relative">
-      {/* w-fit: le conteneur s'adapte exactement à la taille de la photo */}
       <motion.div
         style={{ rotateX, rotateY, transformStyle: 'preserve-3d' }}
         className="relative w-fit animate-float"
@@ -86,25 +85,24 @@ function ProfileCard() {
         <div className="absolute -inset-3 rounded-3xl z-0"
           style={{ background: 'conic-gradient(from 0deg, #2563eb, #7c3aed, #db2777, #2563eb)', filter: 'blur(20px)', opacity: 0.2 }} />
 
-        {/* Image wrapper — taille dictée par l'image elle-même */}
+        {/* Image wrapper */}
         <div className="relative z-10 rounded-3xl overflow-hidden"
           style={{ background: '#F0F0F2', border: '1px solid rgba(0,0,0,0.08)' }}>
           {!imgError ? (
             <img
               src="/profile.jpg"
               alt="Zakaria Lemchaouri"
-              className="block w-[280px] md:w-[320px]"
+              className="block w-[240px] sm:w-[280px] md:w-[320px]"
               style={{ height: 'auto', display: 'block' }}
               onError={() => setImgError(true)}
             />
           ) : (
-            <div className="w-[280px] md:w-[320px] h-[360px] flex flex-col items-center justify-center gap-5"
+            <div className="w-[240px] sm:w-[280px] md:w-[320px] h-[320px] sm:h-[360px] flex flex-col items-center justify-center gap-5"
               style={{ background: 'linear-gradient(135deg, #EEF2FF 0%, #F5F3FF 100%)' }}>
               <div className="w-28 h-28 rounded-full flex items-center justify-center text-4xl font-display font-black"
                 style={{ background: 'linear-gradient(135deg,rgba(37,99,235,0.15),rgba(124,58,237,0.15))', border: '2px solid rgba(37,99,235,0.3)', color: '#2563eb' }}>
                 ZL
               </div>
-              <p className="text-xs font-mono text-center px-6" style={{ color: '#a1a1aa' }}>Ajoutez votre photo à<br />/public/profile.jpg</p>
             </div>
           )}
         </div>
@@ -119,15 +117,13 @@ function ProfileCard() {
         >
           <div className="flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-            <span className="text-xs font-semibold" style={{ color: '#18181b' }}>Disponible</span>
+            <span className="text-xs font-semibold" style={{ color: '#18181b' }}>{availableLabel}</span>
           </div>
         </motion.div>
       </motion.div>
     </motion.div>
   );
 }
-
-
 
 const containerVariants = {
   hidden: {},
@@ -152,7 +148,7 @@ export default function Hero() {
     <section id="hero" className="relative w-full min-h-screen flex items-center overflow-hidden">
       <ParticleCanvas />
 
-      {/* Mouse spotlight — subtle light */}
+      {/* Mouse spotlight */}
       <div
         className="pointer-events-none fixed inset-0 z-10"
         style={{
@@ -160,9 +156,9 @@ export default function Hero() {
         }}
       />
 
-      <div className="relative z-20 max-w-7xl mx-auto w-full px-6 pt-28 pb-16 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <div className="relative z-20 max-w-7xl mx-auto w-full px-4 sm:px-6 pt-24 pb-16 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
         {/* Left: Text */}
-        <motion.div variants={containerVariants} initial="hidden" animate="visible" className="flex flex-col">
+        <motion.div variants={containerVariants} initial="hidden" animate="visible" className="flex flex-col items-center lg:items-start text-center lg:text-left">
           {/* Badge */}
           <motion.div variants={itemVariants} className="inline-flex w-fit items-center gap-2 mb-8">
             <div className="flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium"
@@ -182,8 +178,8 @@ export default function Hero() {
 
           {/* Typing role */}
           <motion.div variants={itemVariants} className="mb-6">
-            <div className="flex items-center gap-3">
-              <div className="w-8 h-[2px] rounded-full" style={{ background: 'linear-gradient(90deg,#2563eb,#7c3aed)' }} />
+            <div className="flex items-center justify-center lg:justify-start gap-3">
+              <div className="w-8 h-[2px] rounded-full hidden lg:block" style={{ background: 'linear-gradient(90deg,#2563eb,#7c3aed)' }} />
               <span className="text-lg md:text-xl font-display font-semibold" style={{ color: '#3f3f46' }}>
                 <TypeAnimation
                   sequence={['Full Stack Developer', 2000, 'Laravel Expert', 2000, 'React Developer', 2000, 'Étudiant CS', 2000]}
@@ -201,25 +197,23 @@ export default function Hero() {
           </motion.p>
 
           {/* CTAs */}
-          <motion.div variants={itemVariants} className="flex flex-wrap gap-4 mb-14">
+          <motion.div variants={itemVariants} className="flex flex-wrap gap-4 mb-14 justify-center lg:justify-start">
             <a href="#projects" onClick={(e) => { e.preventDefault(); document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' }); }}
-              className="group inline-flex items-center gap-2 px-7 py-3.5 rounded-2xl font-semibold text-white text-sm transition-all hover:opacity-90 hover:shadow-lg"
+              className="group inline-flex items-center gap-2 px-6 sm:px-7 py-3.5 rounded-2xl font-semibold text-white text-sm transition-all hover:opacity-90 hover:shadow-lg"
               style={{ background: 'linear-gradient(135deg,#2563eb,#7c3aed)', boxShadow: '0 4px 20px rgba(37,99,235,0.3)' }}>
               {t('hero.explore')}
               <ExternalLink size={15} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
             </a>
             <a href="/cv.pdf"
-              className="group inline-flex items-center gap-2 px-7 py-3.5 rounded-2xl font-semibold text-sm transition-all hover:shadow-md"
+              className="group inline-flex items-center gap-2 px-6 sm:px-7 py-3.5 rounded-2xl font-semibold text-sm transition-all hover:shadow-md"
               style={{ background: '#fff', color: '#18181b', border: '1.5px solid rgba(0,0,0,0.1)' }}>
               {t('hero.cv')}
               <Download size={15} className="group-hover:translate-y-0.5 transition-transform" />
             </a>
           </motion.div>
 
-
-
           {/* Social */}
-          <motion.div variants={itemVariants} className="flex items-center gap-3 mt-8">
+          <motion.div variants={itemVariants} className="flex items-center gap-3 justify-center lg:justify-start">
             <a href="https://github.com/Ziko-20" target="_blank" rel="noreferrer"
               className="p-2.5 rounded-xl transition-all hover:shadow-sm"
               style={{ border: '1.5px solid rgba(0,0,0,0.1)', color: '#52525b', background: '#fff' }}>
@@ -231,7 +225,7 @@ export default function Hero() {
               <Linkedin size={17} />
             </a>
             <a href="mailto:lemchaourizakaria1@gmail.com"
-              className="text-xs font-mono ml-2 hover:underline transition-colors"
+              className="text-xs font-mono ml-2 hover:underline transition-colors hidden sm:inline"
               style={{ color: '#a1a1aa' }}>
               lemchaourizakaria1@gmail.com
             </a>
@@ -243,9 +237,9 @@ export default function Hero() {
           initial={{ opacity: 0, scale: 0.92, x: 40 }}
           animate={{ opacity: 1, scale: 1, x: 0 }}
           transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.4 }}
-          className="flex items-center justify-center lg:justify-end"
+          className="flex items-center justify-center lg:justify-end mt-8 lg:mt-0"
         >
-          <ProfileCard />
+          <ProfileCard availableLabel={t('hero.availableBadge')} />
         </motion.div>
       </div>
 
@@ -256,7 +250,7 @@ export default function Hero() {
         transition={{ delay: 2, duration: 1 }}
         className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2"
       >
-        <span className="text-xs font-mono tracking-widest uppercase" style={{ color: '#a1a1aa' }}>Scroll</span>
+        <span className="text-xs font-mono tracking-widest uppercase" style={{ color: '#a1a1aa' }}>{t('hero.scroll')}</span>
         <motion.div animate={{ y: [0, 6, 0] }} transition={{ repeat: Infinity, duration: 1.5 }}>
           <ArrowDown size={14} style={{ color: '#a1a1aa' }} />
         </motion.div>
