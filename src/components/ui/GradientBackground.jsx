@@ -1,16 +1,38 @@
-import React from 'react';
-
-const GradientBackground = () => {
+export default function GradientBackground() {
   return (
-    <div className="fixed inset-0 z-[-1] overflow-hidden bg-slate-950">
-      <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full bg-blue-600/20 blur-[120px]" />
-      <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] rounded-full bg-purple-600/20 blur-[120px]" />
-      <div className="absolute top-[20%] right-[20%] w-[30%] h-[30%] rounded-full bg-indigo-600/20 blur-[100px]" />
-      
-      {/* Optional faint grid overlay */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>
+    <div aria-hidden="true" className="fixed inset-0 overflow-hidden pointer-events-none z-0">
+      {/* Base */}
+      <div className="absolute inset-0" style={{ backgroundColor: '#F4F4F5' }} />
+
+      {/* Subtle blue orb top-left */}
+      <div
+        className="absolute -top-[15%] -left-[5%] w-[55vw] h-[55vw] rounded-full"
+        style={{
+          background: 'radial-gradient(circle, rgba(59,130,246,0.10) 0%, transparent 70%)',
+          filter: 'blur(70px)',
+          animation: 'float-slow 14s ease-in-out infinite',
+        }}
+      />
+
+      {/* Subtle purple orb top-right */}
+      <div
+        className="absolute -top-[10%] -right-[5%] w-[45vw] h-[45vw] rounded-full"
+        style={{
+          background: 'radial-gradient(circle, rgba(139,92,246,0.08) 0%, transparent 70%)',
+          filter: 'blur(90px)',
+          animation: 'float-slow 18s ease-in-out infinite reverse',
+        }}
+      />
+
+      {/* Very subtle dot grid */}
+      <div
+        className="absolute inset-0"
+        style={{
+          backgroundImage: 'radial-gradient(circle, rgba(0,0,0,0.06) 1px, transparent 1px)',
+          backgroundSize: '32px 32px',
+          opacity: 0.5,
+        }}
+      />
     </div>
   );
-};
-
-export default GradientBackground;
+}

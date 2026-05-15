@@ -6,6 +6,7 @@ const resources = {
     translation: {
       nav: {
         about: "À propos",
+        skills: "Compétences",
         projects: "Projets",
         experience: "Expérience",
         contact: "Contact",
@@ -27,7 +28,7 @@ const resources = {
         p1: "Étudiant en Développement Digital, passionné par la création d'applications web modernes et performantes. Je développe mes compétences à travers des projets pratiques couvrant le frontend comme le backend.",
         p2: "Mon objectif est de concevoir des interfaces claires et efficaces tout en construisant des architectures web structurées et évolutives.",
         softSkillsTitle: "Soft Skills",
-        softSkills: ["Résolution de problèmes", "Compétences en communication", "Travail d'équipe", "Adaptabilité & Apprentissage continu", "Gestion du temps", "Souci du détail", "Capacité d'auto-apprentissage"]
+        softSkills: ["Résolution de problèmes", "Communication", "Travail d'équipe", "Adaptabilité", "Adaptabilité & Apprentissage continu", "Gestion du temps", "Souci du détail", "Capacité d'auto-apprentissage"]
       },
       projects: {
         title1: "Projets ",
@@ -35,13 +36,16 @@ const resources = {
         subtitle: "Un aperçu de mon travail axé sur la gestion de données et la création d'interfaces fluides.",
         viewAll: "Voir tous les projets",
         categories: {
-          web: "Application Web / Back-office"
+          web: "Application Web / Back-office",
+          fullstack: "Full Stack"
         },
         items: {
           p1_title: "Gestion Clients & Abonnements",
           p1_desc: "Application d'administration pour gérer les clients WordPress, suivre les abonnements, enregistrer les paiements et visualiser des statistiques via un dashboard. Inclut un système de rôles et une interface multilingue FR/EN.",
           p2_title: "Zakaria's To-Do List",
-          p2_desc: "Application de productivité pour gérer des tâches au quotidien, suivre leur accomplissement, éditer leur contenu et nettoyer la liste via une interface centralisée. Inclut un système complet d'opérations CRUD, la sauvegarde locale des données (localStorage) et un design minimaliste avec thème sombre."
+          p2_desc: "Application de productivité pour gérer des tâches au quotidien, suivre leur accomplissement, éditer leur contenu et nettoyer la liste via une interface centralisée. Inclut un système complet d'opérations CRUD, la sauvegarde locale des données (localStorage) et un design minimaliste avec thème sombre.",
+          p3_title: "E-commerce Web App (en cours de réalisation)",
+          p3_desc: "Plateforme e-commerce avec frontend en React et backend Laravel API. Elle permet aux utilisateurs de parcourir les produits, ajouter au panier et passer des commandes, avec un tableau de bord admin pour gérer les stocks, clients et ventes."
         }
       },
       experience: {
@@ -73,6 +77,7 @@ const resources = {
     translation: {
       nav: {
         about: "About",
+        skills: "Skills",
         projects: "Projects",
         experience: "Experience",
         contact: "Contact",
@@ -94,7 +99,7 @@ const resources = {
         p1: "Student in Digital Development, passionate about creating modern and high-performance web applications. I develop my skills through practical projects covering both frontend and backend.",
         p2: "My goal is to design clear and efficient interfaces while building structured and scalable web architectures.",
         softSkillsTitle: "Soft Skills",
-        softSkills: ["Problem-Solving", "Communication Skills", "Teamwork", "Adaptability & Continuous Learning", "Time Management", "Attention to Detail", "Self-Learning Ability"]
+        softSkills: ["Problem-Solving", "Communication Skills", "Teamwork", "Adaptability", "Adaptability & Continuous Learning", "Time Management", "Attention to Detail", "Self-Learning Ability"]
       },
       projects: {
         title1: "Recent ",
@@ -102,13 +107,16 @@ const resources = {
         subtitle: "A glimpse of my work focused on data management and creating fluid interfaces.",
         viewAll: "View all projects",
         categories: {
-          web: "Web Application / Back-office"
+          web: "Web Application / Back-office",
+          fullstack: "Full Stack"
         },
         items: {
           p1_title: "Client & Subscription Management",
           p1_desc: "Admin application to manage WordPress clients, track subscriptions, record payments, and view statistics via a dashboard. Includes a role system and a bilingual FR/EN interface.",
           p2_title: "Zakaria's To-Do List",
-          p2_desc: "Productivity application to manage daily tasks, track completion, edit content, and clear the list via a centralized interface. Includes a complete CRUD operations system, local data storage (localStorage), and a minimalist dark theme design."
+          p2_desc: "Productivity application to manage daily tasks, track completion, edit content, and clear the list via a centralized interface. Includes a complete CRUD operations system, local data storage (localStorage), and a minimalist dark theme design.",
+          p3_title: "E-commerce Web App (in progress)",
+          p3_desc: "E-commerce platform with a React frontend and Laravel API backend. It allows users to browse products, add to cart, and place orders, with an admin dashboard to manage inventory, customers, and sales."
         }
       },
       experience: {
@@ -140,6 +148,7 @@ const resources = {
     translation: {
       nav: {
         about: "Über mich",
+        skills: "Fähigkeiten",
         projects: "Projekte",
         experience: "Erfahrung",
         contact: "Kontakt",
@@ -161,7 +170,7 @@ const resources = {
         p1: "Student im Bereich Digital Development, leidenschaftlich an der Erstellung moderner und leistungsfähiger Webanwendungen interessiert. Ich entwickle meine Fähigkeiten durch praktische Projekte im Frontend- und Backend-Bereich.",
         p2: "Mein Ziel ist es, klare und effiziente Benutzeroberflächen zu entwerfen und gleichzeitig strukturierte und skalierbare Web-Architekturen aufzubauen.",
         softSkillsTitle: "Soft Skills",
-        softSkills: ["Problemlösung", "Kommunikationsfähigkeiten", "Teamfähigkeit", "Anpassungsfähigkeit & Kontinuierliches Lernen", "Zeitmanagement", "Liebe zum Detail", "Fähigkeit zum Selbstlernen"]
+        softSkills: ["Problemlösung", "Kommunikationsfähigkeiten", "Teamfähigkeit", "Anpassungsfähigkeit", "Anpassungsfähigkeit & Kontinuierliches Lernen", "Zeitmanagement", "Liebe zum Detail", "Fähigkeit zum Selbstlernen"]
       },
       projects: {
         title1: "Aktuelle ",
@@ -169,13 +178,16 @@ const resources = {
         subtitle: "Ein Einblick in meine Arbeit, konzentriert auf Datenmanagement und die Erstellung flüssiger Benutzeroberflächen.",
         viewAll: "Alle Projekte anzeigen",
         categories: {
-          web: "Webanwendung / Back-office"
+          web: "Webanwendung / Back-office",
+          fullstack: "Full Stack"
         },
         items: {
           p1_title: "Kunden- & Abonnementverwaltung",
           p1_desc: "Admin-Anwendung zur Verwaltung von WordPress-Kunden, zur Verfolgung von Abonnements, zur Aufzeichnung von Zahlungen und zur Anzeige von Statistiken über ein Dashboard. Enthält ein Rollensystem und eine zweisprachige FR/EN-Oberfläche.",
           p2_title: "Zakaria's To-Do List",
-          p2_desc: "Produktivitätsanwendung zur Verwaltung täglicher Aufgaben, Nachverfolgung der Erledigung, Bearbeitung von Inhalten und Bereinigung der Liste über eine zentrale Schnittstelle. Beinhaltet ein komplettes CRUD-Operationssystem, lokale Datenspeicherung (localStorage) und ein minimalistisches, dunkles Design."
+          p2_desc: "Produktivitätsanwendung zur Verwaltung täglicher Aufgaben, Nachverfolgung der Erledigung, Bearbeitung von Inhalten und Bereinigung der Liste über eine zentrale Schnittstelle. Beinhaltet ein komplettes CRUD-Operationssystem, lokale Datenspeicherung (localStorage) und ein minimalistisches, dunkles Design.",
+          p3_title: "E-commerce Web App",
+          p3_desc: "E-Commerce-Plattform mit React-Frontend und Laravel-API-Backend. Sie ermöglicht Nutzern das Stöbern in Produkten, das Hinzufügen zum Warenkorb und die Aufgabe von Bestellungen, mit einem Admin-Dashboard zur Verwaltung von Lagerbeständen, Kunden und Umsätzen."
         }
       },
       experience: {

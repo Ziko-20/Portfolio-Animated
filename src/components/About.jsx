@@ -1,157 +1,134 @@
-import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
+import { Code2, Globe, Database } from 'lucide-react';
 
-const skills = [
-  "PHP", "Laravel", "Livewire", "JavaScript", "React.js", 
-  "Tailwind CSS", "Bootstrap", "Chart.js", "MySQL", 
-  "HTML", "CSS", "Figma", "Git", "GitLab"
+
+
+
+const passions = [
+  { icon: Code2,    label: 'Web Development',     bg: '#EFF6FF', border: '#BFDBFE', ic: '#2563eb' },
+  { icon: Globe,    label: 'Software Engineering', bg: '#ECFDF5', border: '#A7F3D0', ic: '#059669' },
+  { icon: Database, label: 'Modern Technologies',  bg: '#FFF7ED', border: '#FED7AA', ic: '#ea580c' },
 ];
 
-const About = () => {
-  const { t } = useTranslation();
-  const [typedText, setTypedText] = useState('');
-  const [hasStarted, setHasStarted] = useState(false);
-  const fullName = "Zakaria Lemchaouri";
 
-  const startTyping = () => {
-    if (hasStarted) return;
-    setHasStarted(true);
-    let i = 0;
-    const interval = setInterval(() => {
-      setTypedText(fullName.slice(0, i + 1));
-      i++;
-      if (i >= fullName.length) clearInterval(interval);
-    }, 100);
+export default function About() {
+  const { t } = useTranslation();
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 24 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] } },
   };
 
   return (
-    <section id="about" className="w-full py-24 px-6 relative">
-      <div className="max-w-6xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          
+    <section id="about" className="w-full section-pad relative">
+      <div className="max-w-7xl mx-auto">
+        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }} transition={{ duration: 0.6 }}
+          className="flex items-center gap-3 mb-16">
+          <div className="w-8 h-[1px]" style={{ background: '#2563eb' }} />
+          <span className="text-xs font-mono font-semibold tracking-widest uppercase" style={{ color: '#2563eb' }}>About</span>
+        </motion.div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-start">
+          {/* Left */}
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.7 }}
+            variants={{ hidden:{}, visible:{ transition:{ staggerChildren:0.1 } } }}
+            initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-80px' }}
           >
-            <h2 className="text-4xl md:text-5xl font-display font-bold mb-6">
+            <motion.h2 variants={itemVariants}
+              className="text-4xl md:text-5xl font-display font-black leading-tight mb-8" style={{ color: '#111111' }}>
               {t('about.title1')}<span className="text-gradient">{t('about.title_gradient')}</span>{t('about.title2')}
-            </h2>
-            <p className="text-slate-400 text-lg mb-6 leading-relaxed">
+            </motion.h2>
+
+            <motion.p variants={itemVariants} className="text-base leading-relaxed mb-5" style={{ color: '#71717a' }}>
               {t('about.p1')}
-            </p>
-            <p className="text-slate-400 text-lg mb-8 leading-relaxed">
+            </motion.p>
+            <motion.p variants={itemVariants} className="text-base leading-relaxed mb-10" style={{ color: '#71717a' }}>
               {t('about.p2')}
-            </p>
-            
-            <div>
-              <h3 className="text-xl font-display font-semibold mb-4 text-white">Tech Stack</h3>
-              <div className="flex flex-wrap gap-3 mb-8">
-                {skills.map((skill, index) => (
-                  <motion.span
-                    key={skill}
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.3, delay: index * 0.05 }}
-                    className="px-4 py-2 rounded-full glass border border-white/5 text-sm font-medium text-slate-300"
-                  >
-                    {skill}
-                  </motion.span>
-                ))}
-              </div>
-            </div>
+            </motion.p>
 
-            <div>
-              <h3 className="text-xl font-display font-semibold mb-4 text-white">{t('about.softSkillsTitle')}</h3>
-              <div className="flex flex-wrap gap-3">
-                {t('about.softSkills', { returnObjects: true }).map((skill, index) => (
-                  <motion.span
-                    key={skill}
-                    initial={{ opacity: 0, scale: 0.8 }}
+            {/* Passion cards */}
+            <motion.div variants={itemVariants} className="grid grid-cols-2 gap-3 mb-10">
+              {passions.map(({ icon: Icon, label, bg, border, ic }) => (
+                <div key={label}
+                  className="flex items-center gap-3 p-4 rounded-2xl transition-all duration-300 hover:scale-[1.02] cursor-default"
+                  style={{ background: bg, border: `1px solid ${border}` }}>
+                  <Icon size={17} style={{ color: ic }} />
+                  <span className="text-sm font-semibold" style={{ color: '#3f3f46' }}>{label}</span>
+                </div>
+              ))}
+            </motion.div>
+
+            {/* Soft skills */}
+            <motion.div variants={itemVariants}>
+              <h3 className="text-xs font-mono font-semibold uppercase tracking-widest mb-4" style={{ color: '#a1a1aa' }}>
+                {t('about.softSkillsTitle')}
+              </h3>
+              <div className="flex flex-wrap gap-2">
+                {t('about.softSkills', { returnObjects: true }).map((skill, i) => (
+                  <motion.span key={skill}
+                    initial={{ opacity: 0, scale: 0.85 }}
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.3, delay: index * 0.05 }}
-                    className="px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/20 text-sm font-medium text-blue-200"
-                  >
+                    transition={{ delay: i * 0.05, duration: 0.4 }}
+                    className="px-3 py-1.5 rounded-xl text-xs font-semibold transition-all cursor-default"
+                    style={{ background: '#fff', border: '1px solid rgba(0,0,0,0.08)', color: '#52525b' }}
+                    onMouseEnter={(e) => { e.currentTarget.style.borderColor='#BFDBFE'; e.currentTarget.style.color='#2563eb'; }}
+                    onMouseLeave={(e) => { e.currentTarget.style.borderColor='rgba(0,0,0,0.08)'; e.currentTarget.style.color='#52525b'; }}>
                     {skill}
                   </motion.span>
                 ))}
               </div>
-            </div>
+            </motion.div>
           </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true, margin: "-100px" }}
-            onViewportEnter={startTyping}
-            transition={{ duration: 0.7 }}
-            className="relative aspect-square md:aspect-[4/3] lg:aspect-square w-full max-w-md mx-auto"
-          >
-            <div className="absolute inset-0 rounded-3xl bg-gradient-to-tr from-blue-500/20 to-purple-500/20 blur-3xl"></div>
-            <div className="relative h-full w-full glass-card overflow-hidden flex flex-col font-mono">
-              {/* Terminal Header */}
-              <div className="flex items-center px-4 py-3 border-b border-white/10 bg-slate-900/80">
-                <div className="flex gap-2">
-                  <div className="w-3 h-3 rounded-full bg-red-500/80"></div>
-                  <div className="w-3 h-3 rounded-full bg-yellow-500/80"></div>
-                  <div className="w-3 h-3 rounded-full bg-green-500/80"></div>
+          {/* Right: Stats + Terminal */}
+          <div className="flex flex-col gap-6">
+
+            {/* Terminal */}
+            <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }} transition={{ duration: 0.7, delay: 0.2 }}
+              className="glass-card overflow-hidden">
+              <div className="flex items-center gap-2 px-5 py-3" style={{ borderBottom: '1px solid rgba(0,0,0,0.06)', background: '#FAFAFA' }}>
+                <div className="flex gap-1.5">
+                  <div className="w-3 h-3 rounded-full bg-red-400" />
+                  <div className="w-3 h-3 rounded-full bg-yellow-400" />
+                  <div className="w-3 h-3 rounded-full bg-emerald-400" />
                 </div>
-                <div className="mx-auto text-xs font-medium text-slate-400">bash ~ zakaria</div>
+                <span className="text-xs font-mono mx-auto" style={{ color: '#a1a1aa' }}>bash ~ zakaria</span>
               </div>
-              
-              {/* Terminal Body */}
-              <div className="p-6 text-sm text-slate-300 flex-grow flex flex-col gap-4">
+              <div className="p-6 font-mono text-sm space-y-3" style={{ background: '#FAFAFA' }}>
                 <div>
-                  <span className="text-green-400">zakaria@macbook</span>
-                  <span className="text-white">:</span>
-                  <span className="text-blue-400">~/portfolio</span>
-                  <span className="text-white">$ whoami</span>
+                  <span style={{ color: '#059669' }}>zakaria</span>
+                  <span style={{ color: '#a1a1aa' }}>@portfolio</span>
+                  <span style={{ color: '#3f3f46' }}>:~$ </span>
+                  <span style={{ color: '#18181b' }}>whoami</span>
                 </div>
-                
-                <div className="text-yellow-300 font-bold text-lg min-h-[1.75rem]">
-                  {typedText}
-                  {typedText !== fullName && <span className="inline-block w-2 h-5 ml-1 bg-slate-400 animate-pulse align-middle"></span>}
+                <div style={{ color: '#2563eb' }} className="font-semibold">Zakaria Lemchaouri</div>
+                <div>
+                  <span style={{ color: '#059669' }}>zakaria</span>
+                  <span style={{ color: '#a1a1aa' }}>@portfolio</span>
+                  <span style={{ color: '#3f3f46' }}>:~$ </span>
+                  <span style={{ color: '#18181b' }}>./status</span>
                 </div>
-
-                {typedText === fullName && (
-                  <motion.div 
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ delay: 0.5 }}
-                    className="mt-4 flex flex-col gap-2"
-                  >
-                    <div>
-                      <span className="text-green-400">zakaria@macbook</span>
-                      <span className="text-white">:</span>
-                      <span className="text-blue-400">~/portfolio</span>
-                      <span className="text-white">$ ./status</span>
-                    </div>
-                    <div className="text-slate-300">
-                      <span className="text-blue-300">System:</span> Online and ready to code.<br/>
-                      <span className="text-blue-300">Specialty:</span> Laravel & React.<br/>
-                      <span className="text-blue-300">Status:</span> Open for opportunities.
-                    </div>
-                    <div className="mt-4">
-                      <span className="text-green-400">zakaria@macbook</span>
-                      <span className="text-white">:</span>
-                      <span className="text-blue-400">~/portfolio</span>
-                      <span className="text-white">$ </span>
-                      <span className="inline-block w-2 h-4 ml-1 bg-slate-400 animate-pulse align-middle"></span>
-                    </div>
-                  </motion.div>
-                )}
+                <div className="space-y-1.5" style={{ color: '#52525b' }}>
+                  <div><span style={{ color: '#2563eb' }}>Role:</span> Full Stack Developer</div>
+                  <div><span style={{ color: '#2563eb' }}>Stack:</span> Laravel + React</div>
+                  <div><span style={{ color: '#2563eb' }}>Location:</span> Rabat, Morocco 🇲🇦</div>
+                  <div><span style={{ color: '#2563eb' }}>Status:</span> <span style={{ color: '#059669' }}>Open ✓</span></div>
+                </div>
+                <div className="flex items-center">
+                  <span style={{ color: '#059669' }}>zakaria</span>
+                  <span style={{ color: '#a1a1aa' }}>@portfolio</span>
+                  <span style={{ color: '#3f3f46' }}>:~$ </span>
+                  <span className="inline-block w-2 h-4 ml-1 animate-pulse" style={{ background: '#71717a' }} />
+                </div>
               </div>
-            </div>
-          </motion.div>
-          
+            </motion.div>
+          </div>
         </div>
       </div>
     </section>
   );
-};
-
-export default About;
+}
