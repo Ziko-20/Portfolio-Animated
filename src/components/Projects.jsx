@@ -39,7 +39,7 @@ export default function Projects() {
       tags: ['Laravel 11', 'Livewire', 'MySQL', 'Tailwind'],
       liveLink: 'https://github.com/Ziko-20/GestionClients-Abonnements',
       githubLink: 'https://github.com/Ziko-20/GestionClients-Abonnements',
-      accentColor: '#FF2D20',
+      accentColor: '#FF2D20', inProgress: false,
     },
     {
       id: 2, title: t('projects.items.p2_title'), category: 'web',
@@ -48,16 +48,26 @@ export default function Projects() {
       tags: ['React', 'JavaScript', 'localStorage', 'Tailwind'],
       liveLink: 'https://to-do-react-xi-smoky.vercel.app/',
       githubLink: 'https://github.com/Ziko-20/To-do-React.git',
-      accentColor: '#61DAFB',
+      accentColor: '#61DAFB', inProgress: false,
     },
     {
       id: 3, title: t('projects.items.p3_title'), category: 'fullstack',
       categoryLabel: t('projects.categories.fullstack'),
       description: t('projects.items.p3_desc'), image: '/project3.png',
-      tags: ['React', 'Laravel', 'REST API', 'MySQL'],
+      video: '/SmartShop.mp4',
+      tags: ['React', 'Vite', 'Laravel 13', 'Sanctum', 'MySQL', 'REST API'],
       liveLink: 'https://github.com/Ziko-20/TechStore',
       githubLink: 'https://github.com/Ziko-20/TechStore',
-      accentColor: '#7c3aed',
+      accentColor: '#7c3aed', inProgress: false,
+    },
+    {
+      id: 4, title: t('projects.items.p4_title'), category: 'fullstack',
+      categoryLabel: t('projects.categories.fullstack'),
+      description: t('projects.items.p4_desc'), image: '/project4.png',
+      tags: ['Laravel', 'React', 'MySQL', 'Full Stack'],
+      liveLink: 'https://github.com/Ziko-20',
+      githubLink: 'https://github.com/Ziko-20',
+      accentColor: '#059669', inProgress: true,
     },
   ];
 
@@ -82,7 +92,7 @@ export default function Projects() {
           </motion.div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-2 gap-6">
           {allProjects.map((project, i) => (
             <motion.div key={project.id} layout
               initial={{ opacity: 0, y: 40 }}
@@ -94,18 +104,44 @@ export default function Projects() {
                   style={{ '--accent': project.accentColor }}
                   onMouseEnter={(e) => { e.currentTarget.style.boxShadow = `0 16px 48px ${project.accentColor}22`; e.currentTarget.style.borderColor = `${project.accentColor}25`; }}
                   onMouseLeave={(e) => { e.currentTarget.style.boxShadow = ''; e.currentTarget.style.borderColor = ''; }}>
-                  {/* Image */}
-                  <div className="relative aspect-video overflow-hidden" style={{ background: '#F4F4F5' }}>
-                    {project.image && (
-                      <img src={project.image} alt={project.title}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                  {/* Media: video for SmartShop, image for others */}
+                  <div className="relative aspect-video overflow-hidden group/media" style={{ background: '#F4F4F5' }}>
+                    {project.video ? (
+                      <>
+                        <video
+                          src={project.video}
+                          className="w-full h-full object-cover"
+                          muted loop playsInline preload="metadata"
+                          onMouseEnter={(e) => e.target.play()}
+                          onMouseLeave={(e) => { e.target.pause(); e.target.currentTime = 0; }}
+                        />
+                        {/* Play hint */}
+                        <div className="absolute inset-0 flex items-center justify-center opacity-100 group-hover/media:opacity-0 transition-opacity duration-300 pointer-events-none">
+                          <div className="w-12 h-12 rounded-full flex items-center justify-center backdrop-blur-sm"
+                            style={{ background: 'rgba(255,255,255,0.85)', boxShadow: '0 4px 20px rgba(0,0,0,0.15)' }}>
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="#2563eb"><path d="M8 5v14l11-7z"/></svg>
+                          </div>
+                        </div>
+                      </>
+                    ) : (
+                      project.image && (
+                        <img src={project.image} alt={project.title}
+                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                      )
                     )}
-                    <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(255,255,255,0.7), transparent)' }} />
-                    <div className="absolute top-4 left-4">
+                    <div className="absolute inset-0 pointer-events-none" style={{ background: 'linear-gradient(to top, rgba(255,255,255,0.6), transparent)' }} />
+                    <div className="absolute top-4 left-4 flex items-center gap-2">
                       <span className="px-3 py-1 rounded-full text-xs font-semibold"
                         style={{ background: '#fff', border: '1px solid rgba(0,0,0,0.08)', color: '#52525b', boxShadow: '0 1px 4px rgba(0,0,0,0.06)' }}>
                         {project.categoryLabel}
                       </span>
+                      {project.inProgress && (
+                        <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-semibold"
+                          style={{ background: '#ECFDF5', border: '1px solid #A7F3D0', color: '#059669' }}>
+                          <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                          En cours
+                        </span>
+                      )}
                     </div>
                   </div>
 

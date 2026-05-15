@@ -44,8 +44,10 @@ const resources = {
           p1_desc: "Application d'administration pour gérer les clients WordPress, suivre les abonnements, enregistrer les paiements et visualiser des statistiques via un dashboard. Inclut un système de rôles et une interface multilingue FR/EN.",
           p2_title: "Zakaria's To-Do List",
           p2_desc: "Application de productivité pour gérer des tâches au quotidien, suivre leur accomplissement, éditer leur contenu et nettoyer la liste via une interface centralisée. Inclut un système complet d'opérations CRUD, la sauvegarde locale des données (localStorage) et un design minimaliste avec thème sombre.",
-          p3_title: "E-commerce Web App (en cours de réalisation)",
-          p3_desc: "Plateforme e-commerce avec frontend en React et backend Laravel API. Elle permet aux utilisateurs de parcourir les produits, ajouter au panier et passer des commandes, avec un tableau de bord admin pour gérer les stocks, clients et ventes."
+          p3_title: "SmartShop",
+          p3_desc: "J'ai développé une application e-commerce complète de type marketplace, construite avec React (Vite) côté frontend et Laravel 13 (API REST + Sanctum) côté backend. La plateforme permet aux utilisateurs de naviguer dans un catalogue de produits, gérer un panier, passer des commandes et suivre leurs livraisons, avec un système de paiement simulé et génération de reçus PDF. Un espace administrateur sécurisé permet la gestion complète des produits, catégories, clients, commandes ainsi que l'analyse des statistiques via un dashboard interactif. Le projet met en œuvre une architecture séparée frontend/backend, une authentification sécurisée par tokens, une gestion avancée du stock via triggers MySQL, ainsi que des interfaces modernes, responsives et animées.",
+          p4_title: "AlMassar",
+          p4_desc: "Je développe actuellement une plateforme web d'apprentissage en ligne inspirée de Coursera. Elle permettra aux utilisateurs de consulter, s'inscrire et suivre des cours dans différents domaines. Le système inclut la gestion des utilisateurs, des cours et des inscriptions, avec une interface moderne et responsive. Ce projet vise à simuler le fonctionnement d'une véritable plateforme e-learning afin de renforcer mes compétences en développement web full-stack et en conception d'applications complètes."
         }
       },
       experience: {
@@ -115,8 +117,10 @@ const resources = {
           p1_desc: "Admin application to manage WordPress clients, track subscriptions, record payments, and view statistics via a dashboard. Includes a role system and a bilingual FR/EN interface.",
           p2_title: "Zakaria's To-Do List",
           p2_desc: "Productivity application to manage daily tasks, track completion, edit content, and clear the list via a centralized interface. Includes a complete CRUD operations system, local data storage (localStorage), and a minimalist dark theme design.",
-          p3_title: "E-commerce Web App (in progress)",
-          p3_desc: "E-commerce platform with a React frontend and Laravel API backend. It allows users to browse products, add to cart, and place orders, with an admin dashboard to manage inventory, customers, and sales."
+          p3_title: "SmartShop",
+          p3_desc: "I developed a complete marketplace-style e-commerce application built with React (Vite) on the frontend and Laravel 13 (REST API + Sanctum) on the backend. The platform allows users to browse a product catalog, manage a cart, place orders, and track deliveries, with a simulated payment system and PDF receipt generation. A secure admin dashboard enables full management of products, categories, customers, orders, and sales statistics. The project implements a separated frontend/backend architecture, token-based authentication, advanced stock management via MySQL triggers, and modern, responsive, animated interfaces.",
+          p4_title: "AlMassar",
+          p4_desc: "I am currently developing an online learning platform inspired by Coursera. It will allow users to browse, enroll in, and follow courses in various fields. The system includes user, course, and enrollment management, with a modern and responsive interface. This project aims to simulate a real e-learning platform to strengthen my full-stack web development and application design skills."
         }
       },
       experience: {
@@ -186,8 +190,10 @@ const resources = {
           p1_desc: "Admin-Anwendung zur Verwaltung von WordPress-Kunden, zur Verfolgung von Abonnements, zur Aufzeichnung von Zahlungen und zur Anzeige von Statistiken über ein Dashboard. Enthält ein Rollensystem und eine zweisprachige FR/EN-Oberfläche.",
           p2_title: "Zakaria's To-Do List",
           p2_desc: "Produktivitätsanwendung zur Verwaltung täglicher Aufgaben, Nachverfolgung der Erledigung, Bearbeitung von Inhalten und Bereinigung der Liste über eine zentrale Schnittstelle. Beinhaltet ein komplettes CRUD-Operationssystem, lokale Datenspeicherung (localStorage) und ein minimalistisches, dunkles Design.",
-          p3_title: "E-commerce Web App",
-          p3_desc: "E-Commerce-Plattform mit React-Frontend und Laravel-API-Backend. Sie ermöglicht Nutzern das Stöbern in Produkten, das Hinzufügen zum Warenkorb und die Aufgabe von Bestellungen, mit einem Admin-Dashboard zur Verwaltung von Lagerbeständen, Kunden und Umsätzen."
+          p3_title: "SmartShop",
+          p3_desc: "Ich habe eine vollständige Marketplace-E-Commerce-App mit React (Vite) als Frontend und Laravel 13 (REST API + Sanctum) als Backend entwickelt. Die Plattform ermöglicht Nutzern das Stöbern in Produkten, Warenkorb, Bestellungen und Lieferverfolgung mit simuliertem Zahlungssystem und PDF-Belegenerzeugung. Ein Admin-Dashboard ermöglicht die vollständige Verwaltung von Produkten, Kategorien, Kunden, Bestellungen und Statistiken.",
+          p4_title: "AlMassar",
+          p4_desc: "Ich entwickle derzeit eine Online-Lernplattform inspiriert von Coursera. Sie ermöglicht Nutzern, Kurse in verschiedenen Bereichen zu durchsuchen, sich anzumelden und zu verfolgen. Das System umfasst Benutzer-, Kurs- und Einschreibungsverwaltung mit moderner, responsiver Oberfläche."
         }
       },
       experience: {
