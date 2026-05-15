@@ -14,59 +14,52 @@ const resources = {
       },
       hero: {
         available: "Disponible pour de nouvelles opportunités",
-        title1: "Je construis des applications web ",
-        title_gradient: "robustes",
-        title2: ", de la base de données à l'interface.",
-        subtitle: "Développeur Fullstack spécialisé Laravel & React, passionné par les interfaces propres et les architectures solides.",
-        explore: "Explorer mon travail",
+        subtitle: "Développeur Fullstack spécialisé Laravel & React, passionné par les interfaces soignées et les architectures robustes.",
+        explore: "Explorer mes projets",
         cv: "Télécharger mon CV"
       },
       about: {
         title1: "Passionné par la ",
         title_gradient: "création",
         title2: " d'applications web.",
-        p1: "Étudiant en Développement Digital, passionné par la création d'applications web modernes et performantes. Je développe mes compétences à travers des projets pratiques couvrant le frontend comme le backend.",
-        p2: "Mon objectif est de concevoir des interfaces claires et efficaces tout en construisant des architectures web structurées et évolutives.",
+        p1: "Étudiant en Développement Digital, passionné par la création d'applications web modernes et performantes. Je développe mes compétences à travers des projets concrets couvrant aussi bien le frontend que le backend.",
+        p2: "Mon objectif est de concevoir des interfaces claires et efficaces, tout en construisant des architectures web structurées et évolutives.",
         softSkillsTitle: "Soft Skills",
-        softSkills: ["Résolution de problèmes", "Communication", "Travail d'équipe", "Adaptabilité", "Adaptabilité & Apprentissage continu", "Gestion du temps", "Souci du détail", "Capacité d'auto-apprentissage"]
+        softSkills: ["Résolution de problèmes", "Communication", "Travail d'équipe", "Adaptabilité & Apprentissage continu", "Gestion du temps", "Souci du détail", "Auto-apprentissage"]
       },
       projects: {
         title1: "Projets ",
         title_gradient: "Récents",
         subtitle: "Un aperçu de mon travail axé sur la gestion de données et la création d'interfaces fluides.",
-        viewAll: "Voir tous les projets",
+        viewAll: "Voir tous mes projets sur GitHub",
+        watchDemo: "Voir la démo",
+        inProgress: "En cours",
         categories: {
-          web: "Application Web / Back-office",
+          web: "Application Web",
           fullstack: "Full Stack"
         },
         items: {
           p1_title: "Gestion Clients & Abonnements",
-          p1_desc: "Application d'administration pour gérer les clients WordPress, suivre les abonnements, enregistrer les paiements et visualiser des statistiques via un dashboard. Inclut un système de rôles et une interface multilingue FR/EN.",
+          p1_desc: "Application d'administration pour gérer les clients WordPress, suivre les abonnements, enregistrer les paiements et visualiser des statistiques via un dashboard interactif. Inclut un système de rôles et une interface multilingue FR/EN.",
           p2_title: "Zakaria's To-Do List",
-          p2_desc: "Application de productivité pour gérer des tâches au quotidien, suivre leur accomplissement, éditer leur contenu et nettoyer la liste via une interface centralisée. Inclut un système complet d'opérations CRUD, la sauvegarde locale des données (localStorage) et un design minimaliste avec thème sombre.",
+          p2_desc: "Application de productivité pour gérer des tâches au quotidien : suivi de l'accomplissement, édition du contenu et nettoyage de la liste. Inclut un système CRUD complet, la persistance locale (localStorage) et un design minimaliste.",
           p3_title: "SmartShop",
-          p3_desc: "J'ai développé une application e-commerce complète de type marketplace, construite avec React (Vite) côté frontend et Laravel 13 (API REST + Sanctum) côté backend. La plateforme permet aux utilisateurs de naviguer dans un catalogue de produits, gérer un panier, passer des commandes et suivre leurs livraisons, avec un système de paiement simulé et génération de reçus PDF. Un espace administrateur sécurisé permet la gestion complète des produits, catégories, clients, commandes ainsi que l'analyse des statistiques via un dashboard interactif. Le projet met en œuvre une architecture séparée frontend/backend, une authentification sécurisée par tokens, une gestion avancée du stock via triggers MySQL, ainsi que des interfaces modernes, responsives et animées.",
+          p3_desc: "Application e-commerce complète de type marketplace, construite avec React (Vite) et Laravel 13 (API REST + Sanctum). Catalogue produits, panier, commandes, suivi des livraisons, paiement simulé et génération de reçus PDF. Espace admin complet avec dashboard analytique, gestion des stocks via triggers MySQL et authentification sécurisée par tokens.",
           p4_title: "AlMassar",
-          p4_desc: "Je développe actuellement une plateforme web d'apprentissage en ligne inspirée de Coursera. Elle permettra aux utilisateurs de consulter, s'inscrire et suivre des cours dans différents domaines. Le système inclut la gestion des utilisateurs, des cours et des inscriptions, avec une interface moderne et responsive. Ce projet vise à simuler le fonctionnement d'une véritable plateforme e-learning afin de renforcer mes compétences en développement web full-stack et en conception d'applications complètes."
+          p4_desc: "Plateforme d'apprentissage en ligne inspirée de Coursera, en cours de développement. Permettra de consulter, s'inscrire et suivre des cours dans différents domaines avec gestion des utilisateurs, des cours et des inscriptions via une interface moderne et responsive."
         }
       },
       experience: {
-        title1: "Expérience ",
-        title_gradient: "Professionnelle",
-        subtitle: "Mon parcours en développement.",
-        present: "Présent",
-        items: {
-          e1_role: "Stagiaire Développeur PHP",
-          e1_company: "Wave Rabat",
-          e1_period: "Février 2025 – Mars 2025",
-          e1_desc: "Stage d'un mois au sein d'une entreprise spécialisée en développement PHP, Rabat."
-        }
+        title1: "Mon ",
+        title_gradient: "Parcours",
+        subtitle: "Expériences professionnelles et formation académique.",
+        present: "Présent"
       },
       contact: {
         title1: "Créons quelque chose d'",
         title_gradient: "épique",
         title2: ".",
-        subtitle: "Je suis actuellement ouvert à de nouvelles opportunités. N'hésitez pas à me contacter via mon adresse e-mail ou mes réseaux sociaux !",
+        subtitle: "Ouvert aux nouvelles opportunités, stages et collaborations. N'hésitez pas à me contacter !",
         message: "Envoyer un e-mail",
         location: "Rabat, Maroc"
       },
@@ -101,7 +94,7 @@ const resources = {
         p1: "Student in Digital Development, passionate about creating modern and high-performance web applications. I develop my skills through practical projects covering both frontend and backend.",
         p2: "My goal is to design clear and efficient interfaces while building structured and scalable web architectures.",
         softSkillsTitle: "Soft Skills",
-        softSkills: ["Problem-Solving", "Communication Skills", "Teamwork", "Adaptability", "Adaptability & Continuous Learning", "Time Management", "Attention to Detail", "Self-Learning Ability"]
+        softSkills: ["Problem-Solving", "Communication", "Teamwork", "Adaptability & Continuous Learning", "Time Management", "Attention to Detail", "Self-Learning"]
       },
       projects: {
         title1: "Recent ",
@@ -124,9 +117,9 @@ const resources = {
         }
       },
       experience: {
-        title1: "Work ",
-        title_gradient: "Experience",
-        subtitle: "My development journey.",
+        title1: "My ",
+        title_gradient: "Journey",
+        subtitle: "Professional experience and academic background.",
         present: "Present",
         items: {
           e1_role: "PHP Developer Intern",
@@ -174,7 +167,7 @@ const resources = {
         p1: "Student im Bereich Digital Development, leidenschaftlich an der Erstellung moderner und leistungsfähiger Webanwendungen interessiert. Ich entwickle meine Fähigkeiten durch praktische Projekte im Frontend- und Backend-Bereich.",
         p2: "Mein Ziel ist es, klare und effiziente Benutzeroberflächen zu entwerfen und gleichzeitig strukturierte und skalierbare Web-Architekturen aufzubauen.",
         softSkillsTitle: "Soft Skills",
-        softSkills: ["Problemlösung", "Kommunikationsfähigkeiten", "Teamfähigkeit", "Anpassungsfähigkeit", "Anpassungsfähigkeit & Kontinuierliches Lernen", "Zeitmanagement", "Liebe zum Detail", "Fähigkeit zum Selbstlernen"]
+        softSkills: ["Problemlösung", "Kommunikation", "Teamfähigkeit", "Anpassungsfähigkeit & Kontinuierliches Lernen", "Zeitmanagement", "Liebe zum Detail", "Selbstständiges Lernen"]
       },
       projects: {
         title1: "Aktuelle ",
@@ -197,9 +190,9 @@ const resources = {
         }
       },
       experience: {
-        title1: "Berufs",
-        title_gradient: "erfahrung",
-        subtitle: "Mein Entwicklungsweg.",
+        title1: "Mein ",
+        title_gradient: "Werdegang",
+        subtitle: "Berufserfahrung und akademischer Hintergrund.",
         present: "Heute",
         items: {
           e1_role: "PHP-Entwickler-Praktikant",
@@ -210,9 +203,9 @@ const resources = {
       },
       contact: {
         title1: "Lass uns etwas ",
-        title_gradient: "Episches",
+        title_gradient: "Großartiges",
         title2: " bauen.",
-        subtitle: "Ich bin derzeit offen für neue Möglichkeiten. Zögern Sie nicht, mich über meine E-Mail-Adresse oder meine sozialen Netzwerke zu kontaktieren!",
+        subtitle: "Ich bin offen für neue Möglichkeiten, Praktika und Kooperationen. Schreib mir gerne!",
         message: "E-Mail senden",
         location: "Rabat, Marokko"
       },

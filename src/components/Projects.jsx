@@ -1,5 +1,6 @@
-import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
-import { ExternalLink, Github } from 'lucide-react';
+import { useState } from 'react';
+import { motion, useMotionValue, useSpring, useTransform, AnimatePresence } from 'framer-motion';
+import { ExternalLink, Github, X } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
 function TiltCard({ children, className }) {
@@ -29,6 +30,7 @@ function TiltCard({ children, className }) {
 
 export default function Projects() {
   const { t } = useTranslation();
+  const [selectedVideo, setSelectedVideo] = useState(null);
 
 
   const allProjects = [
@@ -93,7 +95,7 @@ export default function Projects() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-2 gap-6">
-          {allProjects.map((project, i) => (
+          {[...allProjects].reverse().map((project, i) => (
             <motion.div key={project.id} layout
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -105,7 +107,8 @@ export default function Projects() {
                   onMouseEnter={(e) => { e.currentTarget.style.boxShadow = `0 16px 48px ${project.accentColor}22`; e.currentTarget.style.borderColor = `${project.accentColor}25`; }}
                   onMouseLeave={(e) => { e.currentTarget.style.boxShadow = ''; e.currentTarget.style.borderColor = ''; }}>
                   {/* Media: video for SmartShop, image for others */}
-                  <div className="relative aspect-video overflow-hidden group/media" style={{ background: '#F4F4F5' }}>
+                  <div className="relative aspect-video overflow-hidden group/media cursor-pointer" style={{ background: '#F4F4F5' }}
+                       onClick={() => project.video && setSelectedVideo(project.video)}>
                     {project.video ? (
                       <>
                         <video
@@ -199,6 +202,32 @@ export default function Projects() {
           </a>
         </motion.div>
       </div>
+
+      {/* Video Modal */}
+      <AnimatePresence>
+        {selectedVideo && (
+          <motion.div
+            initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm"
+            onClick={() => setSelectedVideo(null)}
+          >
+            <button
+              className="absolute top-6 right-6 text-white/70 hover:text-white transition-colors"
+              onClick={() => setSelectedVideo(null)}
+            >
+              <X size={32} />
+            </button>
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} exit={{ scale: 0.9, opacity: 0 }}
+              transition={{ type: "spring", damping: 25, stiffness: 300 }}
+              className="relative w-full max-w-5xl aspect-video rounded-2xl overflow-hidden bg-black shadow-2xl"
+              onClick={e => e.stopPropagation()}
+            >
+              <video src={selectedVideo} controls autoPlay className="w-full h-full outline-none" />
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 }
